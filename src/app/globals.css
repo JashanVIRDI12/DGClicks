@@ -119,7 +119,7 @@ body::after {
 /* Display — hero titles */
 .display-1 {
   font-family: var(--font-outfit), sans-serif;
-  font-size: clamp(3.5rem, 8vw, var(--text-6xl));
+  font-size: clamp(2.25rem, 8vw, var(--text-6xl));
   font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.04em;

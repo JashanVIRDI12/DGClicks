@@ -21,6 +21,10 @@
   margin-bottom: 2rem;
 }
 
+.titleLine {
+  justify-content: center;
+}
+
 .subtitle {
   max-width: 520px;
   margin-inline: auto;
@@ -199,6 +203,8 @@
 
 @media (max-width: 768px) {
   .heroSection { padding-top: 6rem; }
+  .heroTitle { padding-inline: 5%; }
+  .subtitle { padding-inline: 5%; }
   .mainImage { height: 300px; }
   .imageRegion { padding-bottom: 0; }
   .floatCard {
