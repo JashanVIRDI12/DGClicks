@@ -1,0 +1,44 @@
+.section {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  margin-top: 4rem;
+}
+
+.marqueeText {
+  font-size: 8rem;
+  font-weight: 300;
+  font-family: var(--font-inter);
+  color: var(--foreground);
+  white-space: nowrap;
+  letter-spacing: -0.04em;
+}
+
+/* Base styles for ScrollVelocity */
+.parallax {
+  overflow: hidden;
+  margin: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.scroller {
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 992px) {
+  .marqueeText {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section { margin-top: 2rem; }
+  .marqueeText {
+    font-size: 2.5rem;
+  }
+}

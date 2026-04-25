@@ -1,0 +1,268 @@
+/* ╔══════════════════════════════════════╗
+   ║  Graphic & Brand Design Contact     ║
+   ╚══════════════════════════════════════╝ */
+
+.contactSection {
+  position: relative;
+  padding: 16rem 5% 10rem;
+  overflow: hidden;
+  /* Completely removed heavy dark layers, embracing a clean minimal glass/air vibe. */
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 9rem 5% 5rem;
+  }
+  .heading {
+    font-size: clamp(3rem, 12vw, 5rem);
+    margin: 0 0 2rem;
+  }
+  .subText {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactSection {
+    padding: 7rem 5% 4rem;
+  }
+  .heading {
+    font-size: clamp(2.5rem, 14vw, 4rem);
+  }
+  .infoValue {
+    font-size: 1.1rem;
+  }
+}
+
+.contactInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .contactInner {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  opacity: 0.6;
+}
+
+.eyebrowLine {
+  width: 40px; 
+  height: 1px;
+  background: var(--foreground);
+}
+
+.heading {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(4rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  margin: 0 0 3rem;
+  /* Ensure SplitText renders elegantly */
+}
+
+.splitText {
+  display: block;
+}
+
+.subText {
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+  color: var(--foreground);
+  opacity: 0.7;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 5rem;
+  font-weight: 300;
+}
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.infoLabel {
+  font-size: 0.65rem;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--foreground);
+}
+
+.infoValue {
+  font-size: 1.35rem;
+  font-weight: 300;
+  color: var(--foreground);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.3s ease;
+}
+
+a.infoValue:hover {
+  opacity: 0.5;
+}
+
+/* ─── Minimalist Form ─── */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* Airy form */
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 600px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.formGroup input,
+.formGroup textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 0;
+  color: var(--foreground);
+  font-size: 1.1rem;
+  font-weight: 300;
+  outline: none;
+  font-family: inherit;
+  border-radius: 0; /* Remove default Safari rounding */
+  transition: border-color 0.4s ease;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-bottom-color: var(--foreground);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  color: var(--foreground);
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 400;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.submitBtn::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--foreground);
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.submitBtnWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.submitBtnWrap:hover .submitBtn::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.submitBtnWrap:hover {
+  opacity: 0.7;
+}
+
+.arrowIcon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s var(--ease-out), border-color 0.4s ease;
+}
+
+.submitBtnWrap:hover .arrowIcon {
+  transform: translateX(8px);
+  border-color: var(--foreground);
+}

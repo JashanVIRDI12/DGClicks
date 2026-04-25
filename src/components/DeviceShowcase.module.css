@@ -1,0 +1,636 @@
+.section {
+  padding-block: var(--space-9);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+/* ── Left Column ── */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.leftPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-light);
+  background: rgba(255, 179, 71, 0.1);
+  border: 1px solid rgba(255, 179, 71, 0.2);
+  border-radius: var(--radius-full);
+  padding: 0.4rem 0.9rem;
+  width: fit-content;
+}
+
+.leftHeading {
+  color: var(--foreground);
+  margin: 0;
+}
+
+/* Feature items — used inside AnimatedList nodes */
+.featureItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.featureIcon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 138, 0, 0.08);
+  border: 1px solid rgba(255, 138, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-light);
+  margin-top: 0.1rem;
+}
+
+.featureTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 0.25rem;
+}
+
+.featureDesc {
+  font-size: var(--text-sm);
+  color: var(--foreground-muted);
+  line-height: 1.55;
+  font-weight: 300;
+  margin: 0;
+}
+
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.ghostLink {
+  font-size: var(--text-sm);
+  color: var(--foreground-muted);
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.ghostLink:hover {
+  color: var(--foreground);
+  opacity: 1;
+}
+
+/* ── Devices Container ── */
+.devicesContainer {
+  position: relative;
+  width: 100%;
+  height: 580px;
+}
+
+.glowOrb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 138, 0, 0.15) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* ── Macbook ── */
+.macbook {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72%;
+  z-index: 1;
+}
+
+.macbookFrame {
+  background: #1c1c1e;
+  border-radius: 14px 14px 0 0;
+  padding: 0;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  border: 2px solid #3a3a3c;
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.browserChrome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #2c2c2e;
+  border-bottom: 1px solid #3a3a3c;
+}
+
+.trafficLights {
+  display: flex;
+  gap: 6px;
+}
+
+.dotRed, .dotYellow, .dotGreen {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotRed { background: #ff5f57; }
+.dotYellow { background: #febc2e; }
+.dotGreen { background: #28c840; }
+
+.addressBar {
+  flex: 1;
+  background: #1c1c1e;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.macbookScreen {
+  background: #0a0a0f;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.macbookBase {
+  position: absolute;
+  bottom: -14px;
+  left: -3%;
+  width: 106%;
+  height: 14px;
+  background: linear-gradient(to bottom, #48484a, #2c2c2e);
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+}
+
+.macbookBase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14%;
+  height: 5px;
+  background: #1c1c1e;
+  border-radius: 0 0 4px 4px;
+}
+
+/* ── Desktop UI inside screen ── */
+.desktopUI {
+  padding: 16px 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: linear-gradient(165deg, #0f0720 0%, #0a0a14 100%);
+  font-family: var(--font-inter), sans-serif;
+}
+
+.dNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.dLogo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+.dLogoMark {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 3px 0 3px 0;
+}
+
+.dNavLinks {
+  display: flex;
+  gap: 12px;
+  font-size: 0.5rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.04em;
+}
+
+.dHero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.dTag {
+  font-size: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-light);
+  font-weight: 500;
+  margin: 0;
+}
+
+.dTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: white;
+  margin: 0;
+}
+
+.dSub {
+  font-size: 0.5rem;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+}
+
+.dBtnRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.dBtn {
+  background: var(--accent);
+  color: #000;
+  font-size: 0.5rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 100px;
+}
+
+.dBtnGhost {
+  font-size: 0.5rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.dStats {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.dStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.dStatNum {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-light);
+}
+
+.dStatLbl {
+  font-size: 0.4rem;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.dStatDiv {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.08);
+}
+
+.dNavCta {
+  background: var(--accent);
+  color: #000;
+  font-size: 0.5rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* ── iPhone ── */
+.iphone {
+  position: absolute;
+  bottom: -50px;
+  right: 3%;
+  width: 24%;
+  min-width: 220px;
+  z-index: 2;
+}
+
+.iphoneFrame {
+  background: #1c1c1e;
+  border-radius: 36px;
+  padding: 10px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 0 2px #3a3a3c;
+  position: relative;
+}
+
+.iphoneNotch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32%;
+  height: 22px;
+  background: #1c1c1e;
+  border-radius: 0 0 14px 14px;
+  z-index: 10;
+}
+
+.iphoneScreen {
+  background: #0a0a0f;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 9/19.5;
+}
+
+/* ── Mobile UI inside iPhone ── */
+.mobileUI {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: linear-gradient(175deg, #0f0720, #0a0a14);
+  font-family: var(--font-inter), sans-serif;
+}
+
+.mStatusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px 4px;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: white;
+}
+
+.mStatusIcons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.mSignal, .mWifi, .mBattery {
+  border-radius: 2px;
+}
+
+.mSignal {
+  width: 12px;
+  height: 8px;
+  background: linear-gradient(to right, white 25%, white 25%, white 50%, rgba(255,255,255,0.3) 50%);
+  border-radius: 1px;
+}
+
+.mWifi {
+  width: 10px;
+  height: 8px;
+  border: 2px solid white;
+  border-radius: 0 0 50% 50%;
+  border-top: none;
+}
+
+.mBattery {
+  width: 16px;
+  height: 8px;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 2px;
+  position: relative;
+}
+
+.mBattery::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: #28c840;
+  border-radius: 1px;
+}
+
+.mNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.mLogo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.6rem;
+}
+
+.mLogoMark {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 2px 0 2px 0;
+}
+
+.mMenuIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mMenuIcon span {
+  display: block;
+  width: 14px;
+  height: 1.5px;
+  background: white;
+  border-radius: 2px;
+}
+
+.mContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 10px 16px;
+}
+
+.mTag {
+  font-size: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-light);
+  font-weight: 500;
+  margin: 0;
+}
+
+.mTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: white;
+  margin: 0;
+}
+
+.mSub {
+  font-size: 0.4rem;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+}
+
+.mBtn {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  font-size: 0.45rem;
+  font-weight: 600;
+  padding: 5px 16px;
+  border-radius: 100px;
+  margin-top: 4px;
+}
+
+.mMetrics {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 12px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.mMetric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.mMetricNum {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent-light);
+}
+
+.mMetricLbl {
+  font-size: 0.35rem;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mMetricDivider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.08);
+}
+
+.mSpeedSection {
+  padding: 10px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mSpeedLabel {
+  font-size: 0.4rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.mSpeedBarBg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.mSpeedBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #2dd4bf);
+  border-radius: 100px;
+  animation: fillBar 2.5s ease-out 1.5s forwards;
+}
+
+@keyframes fillBar {
+  to { width: 99%; }
+}
+
+.mSpeedValue {
+  font-size: 0.45rem;
+  color: #2dd4bf;
+  font-weight: 600;
+  text-align: right;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .leftCol {
+    max-width: 640px;
+  }
+  .devicesContainer { height: 520px; }
+  .macbook { width: 80%; left: 2%; }
+  .iphone { width: 26%; right: 0; bottom: -30px; }
+}
+
+@media (max-width: 640px) {
+  .devicesContainer { height: 400px; }
+  .macbook { width: 100%; left: 0; }
+  .iphone { width: 36%; bottom: -20px; right: -2%; }
+  .macbookBase { left: 0; width: 100%; border-radius: 0 0 8px 8px; }
+  .glowOrb { width: 280px; height: 280px; }
+}

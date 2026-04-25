@@ -1,0 +1,152 @@
+.section {
+  padding: 8rem 0;
+  background: var(--surface);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 400px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cardWrapper {
+  position: absolute;
+  width: 100%;
+  max-width: 650px;
+}
+
+.card {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 4rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.05);
+  text-align: left;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.quoteMark {
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  font-size: 8rem;
+  font-family: serif;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.2;
+}
+
+.quote {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: var(--foreground);
+  position: relative;
+  z-index: 2;
+  font-weight: 300;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 15px rgba(155, 77, 202, 0.4);
+}
+
+.authorDetails h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-outfit);
+}
+
+.authorDetails p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  position: relative;
+  z-index: 3;
+}
+
+.controlBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: var(--foreground);
+}
+
+.controlBtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .section { padding: 5rem 0; }
+  .title { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 3rem; }
+  .carouselContainer {
+    height: auto;
+    min-height: 320px;
+    padding: 0 5%;
+  }
+  .cardWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+  .card {
+    padding: 2rem;
+  }
+  .quote {
+    font-size: 1rem;
+  }
+  .quoteMark {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card { padding: 1.75rem 1.5rem; }
+  .controls { margin-top: 2rem; }
+}

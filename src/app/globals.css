@@ -1,0 +1,289 @@
+:root {
+  --background-start: #ff5e00;
+  --background-mid: #5b21b6;
+  --background-end: #170b24;
+
+  --foreground: #ffffff;
+  --foreground-muted: rgba(255, 255, 255, 0.55);
+  --foreground-subtle: rgba(255, 255, 255, 0.25);
+
+  --accent: #ff8a00;
+  --accent-light: #ffb347;
+
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.25);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2.5rem;
+  --radius-full: 9999px;
+
+  /* TYPE SCALE */
+  --text-xs:   0.6875rem;  /* 11px */
+  --text-sm:   0.8125rem;  /* 13px */
+  --text-base: 1rem;       /* 16px */
+  --text-md:   1.125rem;   /* 18px */
+  --text-lg:   1.375rem;   /* 22px */
+  --text-xl:   1.75rem;    /* 28px */
+  --text-2xl:  2.25rem;    /* 36px */
+  --text-3xl:  3rem;       /* 48px */
+  --text-4xl:  4rem;       /* 64px */
+  --text-5xl:  5.5rem;     /* 88px */
+  --text-6xl:  7.5rem;     /* 120px */
+
+  /* SPACING */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --space-8: 8rem;
+  --space-9: 12rem;
+
+  /* TRANSITIONS */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--foreground);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: #170b24; /* fallback */
+  position: relative;
+}
+
+/* Animated gradient layer */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    175deg,
+    #ff5e00 0%,
+    #7c3aed 38%,
+    #170b24 72%
+  );
+  background-size: 200% 200%;
+  animation: moveGradient 20s ease infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Noise overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opactity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+
+@keyframes moveGradient {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-10%, -10%); }
+  100% { transform: translate(0, 0); }
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* ─────────────────────────────
+   TYPOGRAPHY SYSTEM
+───────────────────────────── */
+
+/* Display — hero titles */
+.display-1 {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(3.5rem, 8vw, var(--text-6xl));
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+/* Section headings */
+.heading-1 {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(2.5rem, 5vw, var(--text-5xl));
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+.heading-2 {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(1.75rem, 3vw, var(--text-3xl));
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.heading-3 {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* Body copy */
+.body-lg {
+  font-size: var(--text-md);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--foreground-muted);
+  margin: 0;
+}
+
+.body-base {
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--foreground-muted);
+  margin: 0;
+}
+
+/* Labels / overlines */
+.label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+  margin: 0;
+}
+
+/* Base tag resets — use classes instead */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: inherit;
+}
+
+p { margin: 0; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+a:hover { opacity: 0.7; }
+
+ul, ol { list-style: none; padding: 0; margin: 0; }
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ─────────────────────────────
+   LAYOUT UTILITIES
+───────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 5%;
+}
+
+.section-pad {
+  padding-block: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding-block: var(--space-6);
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─────────────────────────────
+   BUTTONS
+───────────────────────────── */
+
+.outline-pill {
+  border: 1px solid var(--border-strong);
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.3s var(--ease-out);
+  background: transparent;
+  color: var(--foreground);
+  box-shadow: 0 0 0 rgba(255, 138, 0, 0);
+}
+
+.outline-pill:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.6);
+  box-shadow: 0 4px 20px rgba(255, 138, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ─────────────────────────────
+   ANIMATION HELPERS
+───────────────────────────── */
+
+/* Used by GSAP: set initial hidden state via CSS, GSAP reveals */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.js-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.js-reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+/* Split text lines — each line wrapped for GSAP clip */
+.split-line-wrap {
+  overflow: hidden;
+  display: block;
+}
